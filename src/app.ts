@@ -1,2 +1,7 @@
-const message: string = 'hello, World!';
-console.log(message);
+import express from 'express';
+
+const app = express();
+
+app.use(express.json());
+
+export default app;
