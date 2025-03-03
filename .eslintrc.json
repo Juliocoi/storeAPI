@@ -4,7 +4,7 @@
     "airbnb-base",
     "airbnb-typescript/base",
     "plugin:@typescript-eslint/recommended",
-    "prettier",
+    "prettier/recommended",
     "plugin:node/recommended"
   ],
   "plugins": ["@typescript-eslint", "prettier"],
@@ -21,7 +21,8 @@
     "no-underscore-dangle": "off",
     "class-methods-use-this": "off",
     "prefer-destructuring": ["error", { "object": true, "array": false }],
-    "no-unused-vars": ["warn", { "argsIgnorePattern": "req|res|next|val" }]
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "req|res|next|val" }],
+    "node/no-unsupported-features/es-syntax": "off"
   },
   "parserOptions": {
     "project": "./tsconfig.json"

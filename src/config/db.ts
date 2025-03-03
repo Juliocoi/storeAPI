@@ -8,7 +8,6 @@ const DB = process.env.DATABASE!.replace(
   process.env.DATABASE_PASSWORD!,
 );
 
-console.log(DB);
 export const configDB = async () => {
   try {
     await mongoose.connect(DB);
