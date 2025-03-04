@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { CreateStoreService } from '../services/createStoreService';
+import { CreateStoreService } from '../services/CreateStoreService';
 
 export class CreateStoreController {
   private service: CreateStoreService;
