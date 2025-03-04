@@ -8,11 +8,10 @@ const DB = process.env.DATABASE!.replace(
   process.env.DATABASE_PASSWORD!,
 );
 
-export const configDB = async () => {
-  try {
-    await mongoose.connect(DB);
-  } catch (error) {
-    console.log(error);
-    process.exit(1);
-  }
-};
+export const configDB = () =>
+  mongoose
+    .connect(DB)
+    .then(() => {
+      console.log('Conected to MongoDB...');
+    })
+    .catch((err) => console.error('MongoDB not conected: ', err));
