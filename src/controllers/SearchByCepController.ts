@@ -17,22 +17,27 @@ export class SearchByCepController {
     try {
       const geoLocationResponse = await this.service.getCoordinateByCep(cep);
 
-      const userCoordenates = {
-        type: 'Point',
-        coordinates: [
-          geoLocationResponse.longitude,
-          geoLocationResponse.latitude,
-        ],
-      };
-
-      const stores = await Store.find({
-        location: {
-          $near: {
-            $geometry: userCoordenates,
-            $maxDistance: maxDistanteInMeters,
+      const stores = await Store.aggregate([
+        {
+          $geoNear: {
+            near: {
+              type: 'Point',
+              coordinates: [
+                geoLocationResponse.longitude,
+                geoLocationResponse.latitude,
+              ],
+            },
+            distanceField: 'distance',
+            spherical: true,
+            maxDistance: maxDistanteInMeters,
           },
         },
-      });
+        {
+          $addFields: {
+            distance: { $divide: ['$distance', 1000] }, //converte metros para Km
+          },
+        },
+      ]);
 
       return res.status(200).json({
         status: 'sucess',

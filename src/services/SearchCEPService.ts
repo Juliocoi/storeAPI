@@ -18,7 +18,7 @@ export class SearchCEP {
         },
       },
     );
-
+    //TODO melhorar validação, o array pode vir vazio caso não tenha store próximo
     if (nominatimResponse.data.length === 0) {
       throw new Error('CEP not found');
     }
