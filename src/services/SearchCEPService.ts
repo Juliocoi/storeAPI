@@ -13,12 +13,13 @@ export class SearchCEP {
       'https://nominatim.openstreetmap.org/search',
       {
         params: {
-          q: cep,
+          postalcode: cep,
+          country: 'Brazil',
           format: 'json',
         },
       },
     );
-    //TODO melhorar validação, o array pode vir vazio caso não tenha store próximo
+    //Caso o cep passado seja fora do Brasil ou inexistente.
     if (nominatimResponse.data.length === 0) {
       throw new Error('CEP not found');
     }

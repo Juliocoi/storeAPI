@@ -34,13 +34,21 @@ export class SearchByCepController {
         },
         {
           $addFields: {
-            distance: { $divide: ['$distance', 1000] }, //converte metros para Km
+            distance: { $divide: ['$distance', 1000] },
+          },
+        },
+        {
+          $project: {
+            createdAt: false,
+            updatedAt: false,
+            __v: false,
           },
         },
       ]);
 
       return res.status(200).json({
         status: 'sucess',
+        result: stores.length,
         data: {
           stores,
         },
