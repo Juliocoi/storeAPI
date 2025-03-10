@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { logger } from '../config/logger';
 
 interface Coordinates {
   longitude: number;
@@ -21,6 +22,10 @@ export class SearchCEP {
     );
     //Caso o cep passado seja fora do Brasil ou inexistente.
     if (nominatimResponse.data.length === 0) {
+      logger.warn(
+        'SearchCEPService: Cep não encontrado: cep estrangeiro ou inexistente',
+      );
+
       throw new Error('CEP not found');
     }
 

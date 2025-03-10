@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { CreateStoreService } from '../services/CreateStoreService';
+import { logger } from '../config/logger';
 
 export class CreateStoreController {
   private service: CreateStoreService;
@@ -23,11 +24,14 @@ export class CreateStoreController {
         longitude,
         latitude,
       );
+      logger.info('Loja criada com sucesso');
       return res.status(201).json(newStore);
     } catch (err) {
       if (err instanceof Error) {
+        logger.error('Erro ao criar loja:', err);
         return res.status(500).json({ error: err.message });
       }
+      logger.error('Erro ao criar loja:', err);
       return res.status(500).json({ error: 'erro loja não criada' });
     }
   }

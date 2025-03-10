@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { DeleteStore } from '../services/DeleteStoreService';
+import { logger } from '../config/logger';
 
 export class DeleteStoreController {
   private service: DeleteStore;
@@ -15,6 +16,7 @@ export class DeleteStoreController {
       const storeToBeDelete = await this.service.deleteStoreById(storeId);
 
       if (!storeToBeDelete) {
+        logger.error('delete controller');
         return res.status(404).json({
           status: 'fail',
           message: 'You need pass a valid ID.',
@@ -27,12 +29,14 @@ export class DeleteStoreController {
       });
     } catch (err) {
       if (err instanceof Error) {
+        logger.error('error na delete Store.', err);
         return res.status(400).json({
           status: 'fail',
           message: err.message,
         });
       }
 
+      logger.error('error desconhecido na delete Store.', err);
       return res.status(400).json({
         status: 'fail',
         message: { erro: `An unexpected error occurred, ${err}` },

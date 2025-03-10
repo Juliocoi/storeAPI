@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import { Store } from '../models/store';
+import { logger } from '../config/logger';
 
 export class StoreList {
   constructor() {}
@@ -11,6 +12,7 @@ export class StoreList {
 
   async listStoreById(id: string) {
     if (!mongoose.Types.ObjectId.isValid(id)) {
+      logger.error('ListStoreServise: O formato do ID informado é inválido');
       throw new Error('Invalid ID');
     }
 

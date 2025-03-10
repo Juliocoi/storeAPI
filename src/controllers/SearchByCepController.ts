@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { SearchCEP } from '../services/SearchCEPService';
 import { Store } from '../models/store';
+import { logger } from '../config/logger';
 
 export class SearchByCepController {
   private service: SearchCEP;
@@ -45,7 +46,7 @@ export class SearchByCepController {
           },
         },
       ]);
-
+      logger.info('SearchByCepController: busca realizada com sucesso');
       return res.status(200).json({
         status: 'sucess',
         result: stores.length,
@@ -55,11 +56,16 @@ export class SearchByCepController {
       });
     } catch (err) {
       if (err instanceof Error) {
+        logger.warn('SearchByCepController: erro ao buscar Store por CEP', err);
+
         return res.status(404).json({
           status: 'fail',
           message: err.message,
         });
       }
+      // prettier-ignore
+      logger.error("SearchByCepController: erro desconhecido ao buscar Store por CEP", err)
+
       return res.status(500).json({
         status: 'fail',
         message: `Error desconhecido:\b${err} `,
