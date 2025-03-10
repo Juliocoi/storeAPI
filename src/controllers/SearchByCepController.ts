@@ -29,7 +29,6 @@ export class SearchByCepController {
           estado,
         );
 
-      console.log(geoLocationResponse);
       const stores = await Store.aggregate([
         {
           $geoNear: {

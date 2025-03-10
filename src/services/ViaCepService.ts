@@ -26,7 +26,7 @@ export class ViaCepService {
 
     if (viaCepResponse.data.erro) {
       logger.error('cep not found in ViaCEP database');
-      throw new Error('CEP not found');
+      throw new Error(`CEP ${cep} doen't exist`);
     }
 
     const { logradouro, localidade, estado } = viaCepResponse.data;
