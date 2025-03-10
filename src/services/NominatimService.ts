@@ -28,12 +28,6 @@ export class SearchAdress {
       },
     );
 
-    //Caso o endereço venha vazio do via CEP.
-    if (nominatimResponse.data.length === 0) {
-      logger.warn('SearchCEPService: adress not found');
-      throw new Error('Adress not found');
-    }
-
     const { lon, lat } = nominatimResponse.data[0];
 
     return {

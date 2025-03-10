@@ -60,6 +60,18 @@ export class SearchByCepController {
       logger.info(
         `SearchByCepController: busca realizada com sucesso para o cep: ${cep}`,
       );
+
+      //Caso o não haja lojas próximo.
+      if (stores.length === 0) {
+        logger.warn(
+          'Busca realizada com sucesso, mas sem lojas próximas ao cep:' + cep,
+        );
+        return res.status(200).json({
+          status: 'sucess',
+          messagem: 'Não há lojas em sua região',
+        });
+      }
+
       return res.status(200).json({
         status: 'sucess',
         result: stores.length,
