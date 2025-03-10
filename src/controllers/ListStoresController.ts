@@ -16,6 +16,7 @@ export class ListStoreController {
 
       return res.status(200).json({
         status: 'sucess',
+        result: listStores.length,
         data: {
           listStores,
         },
