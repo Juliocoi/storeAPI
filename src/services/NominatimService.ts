@@ -6,27 +6,31 @@ interface Coordinates {
   latitude: number;
 }
 
-export class SearchCEP {
+export class SearchAdress {
   constructor() {}
 
-  async getCoordinateByCep(cep: string): Promise<Coordinates> {
+  async getCoordinateByAdress(
+    street: string,
+    city: string,
+    state: string,
+  ): Promise<Coordinates> {
     const nominatimResponse = await axios.get(
       'https://nominatim.openstreetmap.org/search',
       {
         params: {
-          postalcode: cep,
+          street: street,
+          city: city,
+          state: state,
           country: 'Brazil',
           format: 'json',
+          limit: 1,
         },
       },
     );
     //Caso o cep passado seja fora do Brasil ou inexistente.
     if (nominatimResponse.data.length === 0) {
-      logger.warn(
-        'SearchCEPService: Cep não encontrado: cep estrangeiro ou inexistente',
-      );
-
-      throw new Error('CEP not found');
+      logger.warn('SearchCEPService: adress not found');
+      throw new Error('Adress not found');
     }
 
     const { lon, lat } = nominatimResponse.data[0];

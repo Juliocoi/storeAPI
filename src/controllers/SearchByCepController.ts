@@ -1,13 +1,16 @@
 import { Request, Response } from 'express';
-import { SearchCEP } from '../services/SearchCEPService';
+import { SearchAdress } from '../services/NominatimService';
+import { ViaCepService } from '../services/ViaCepService';
 import { Store } from '../models/store';
 import { logger } from '../config/logger';
 
 export class SearchByCepController {
-  private service: SearchCEP;
+  private nominatimService: SearchAdress;
+  private viaCepService: ViaCepService;
 
   constructor() {
-    this.service = new SearchCEP();
+    this.viaCepService = new ViaCepService();
+    this.nominatimService = new SearchAdress();
   }
 
   async SearchByCEP(req: Request, res: Response): Promise<any> {
@@ -16,8 +19,17 @@ export class SearchByCepController {
     const maxDistanteInMeters: number = 100000; // 150km em metros
 
     try {
-      const geoLocationResponse = await this.service.getCoordinateByCep(cep);
+      const { logradouro, localidade, estado } =
+        await this.viaCepService.getInfoViaCep(cep);
 
+      const geoLocationResponse =
+        await this.nominatimService.getCoordinateByAdress(
+          logradouro,
+          localidade,
+          estado,
+        );
+
+      console.log(geoLocationResponse);
       const stores = await Store.aggregate([
         {
           $geoNear: {
@@ -46,7 +58,9 @@ export class SearchByCepController {
           },
         },
       ]);
-      logger.info('SearchByCepController: busca realizada com sucesso');
+      logger.info(
+        `SearchByCepController: busca realizada com sucesso para o cep: ${cep}`,
+      );
       return res.status(200).json({
         status: 'sucess',
         result: stores.length,
@@ -56,7 +70,10 @@ export class SearchByCepController {
       });
     } catch (err) {
       if (err instanceof Error) {
-        logger.warn('SearchByCepController: erro ao buscar Store por CEP', err);
+        logger.warn(
+          `SearchByCepController: erro ao buscar Store por CEP:${cep}`,
+          err,
+        );
 
         return res.status(404).json({
           status: 'fail',
