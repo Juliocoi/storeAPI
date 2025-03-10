@@ -18,25 +18,32 @@ const storeSchema = new mongoose.Schema<IStore>(
     name: {
       type: String,
       required: [true, 'Name required.'],
+      unique: true,
+      trim: true,
     },
     address: {
       type: String,
       required: [true, 'Address required'],
+      trim: true,
     },
     bairro: {
       type: String,
+      trim: true,
     },
     city: {
       type: String,
       required: [true, 'City is required'],
+      trim: true,
     },
     uf: {
       type: String,
       required: [true, 'UF is required'],
+      trim: true,
     },
     cep: {
       type: String,
       require: [true, 'CEP required'],
+      trim: true,
     },
     location: {
       type: {
