@@ -2,7 +2,8 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Store, StoreDocument } from './schema/Store.schema';
 import mongoose, { Model } from 'mongoose';
-
+import { StoreDto } from './dto/store-response.dto';
+// TODO criar um response DTO para ocultar o V_ do mongoDB
 @Injectable()
 export class StoreService {
   constructor(@InjectModel(Store.name) private storeModel: Model<StoreDocument>){}
@@ -20,6 +21,16 @@ export class StoreService {
     const store = await this.storeModel.findById(id);
     if(!store){
       throw new NotFoundException(`Store not found.`);
+    }
+    return store;
+  }
+
+  async findStoresByState(state: string): Promise<Store[]> {
+    
+    const store = await this.storeModel.find({ state });
+    
+    if(state.length == 0){
+      throw new NotFoundException("There is no store in the indicated state");
     }
     return store;
   }

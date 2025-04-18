@@ -55,7 +55,7 @@ class SeedService {
         number: "275",
         bairro: "Tamarineira",
         city: "Recife",
-        state: "PE",
+        state: "Pernambuco",
         storeType: "PDV",
         postalCode: "52051020",
         location: {
@@ -69,7 +69,7 @@ class SeedService {
         number: "2967",
         bairro: "Imbiribeira",
         city: "Recife",
-        state: "PE",
+        state: "Pernambuco",
         storeType: "LOJA",
         postalCode: "51150905",
         location: {
@@ -85,7 +85,7 @@ class SeedService {
         number: "341",
         bairro: "Piedade",
         city: "aboatão dos Guararapes",
-        state: "PE",
+        state: "Pernambuco",
         storeType: "PDV",
         postalCode: "22021000",
         location: {
@@ -101,7 +101,7 @@ class SeedService {
         number: "1000",
         bairro: "Savassi",
         city: "Belo Horizonte",
-        state: "MG",
+        state: "Minas Gerais",
         storeType: "PDV",
         postalCode: "30130151",
         location: {
@@ -131,7 +131,7 @@ class SeedService {
         number: "156",
         bairro: "Centro",
         city: "Rio de Janeiro",
-        state: "RJ",
+        state: "Rio de Janeiro",
         storeType: "LOJA",
         postalCode: "20040-901",
         location: {
@@ -145,7 +145,7 @@ class SeedService {
         number: "200",
         bairro: "Boa Viagem",
         city: "Recife",
-        state: "PE",
+        state: "Pernambuco",
         storeType: "LOJA",
         postalCode: "51011000",
         location: {
@@ -159,7 +159,7 @@ class SeedService {
         number: "Bloco J",
         bairro: "Asa Norte",
         city: "Brasília",
-        state: "DF",
+        state: "Distrito Federal",
         storeType: "LOJA",
         postalCode: "70705000",
         location: {
@@ -173,7 +173,7 @@ class SeedService {
         number: "100",
         bairro: "Rio Branco",
         city: "Porto Alegre",
-        state: "RS",
+        state: "Rio Grande do Sul",
         storeType: "LOJA",
         postalCode: "90430100",
         location: {
@@ -187,7 +187,7 @@ class SeedService {
         number: "2000",
         bairro: "Centro",
         city: "Florianópolis",
-        state: "SC",
+        state: "Santa Catarina",
         storeType: "LOJA",
         postalCode: "88015700",
         location: {
@@ -196,7 +196,7 @@ class SeedService {
         },
       }
     ];
-    console.log(stores);
+
     await this.storeModel.insertMany(stores);
     this.logger.log(`${stores.length} stores have been seeded!`);
   }
