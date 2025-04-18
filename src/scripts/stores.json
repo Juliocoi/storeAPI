@@ -1,0 +1,100 @@
+[
+  {
+    "name": "Home Center Ferreira Costa João Pessoa",
+    "address": "Rua Edgar Sáles Miranda Henriques",
+    "number": "345",
+    "bairro": "Cabedelo",
+    "city": "João Pessoa",
+    "state": "PB",
+    "postalcode": "58310-000",
+    "storeType": "PDV",
+    "location": {
+      "type": "Point",
+      "coordinates": [-34.8305, -7.16219]
+    }
+  },
+  {
+    "name": "Home Center Ferreira Costa Tamarineira",
+    "address": "Rua Cônego Barata",
+    "number": "275",
+    "bairro": "Tamarineira",
+    "city": "Recife",
+    "uf": "PE",
+    "postalcode": "52051-020",
+    "storeType": "PDV",
+    "location": {
+      "type": "Point",
+      "coordinates": [-34.90284, -8.03107]
+    }
+  },
+  {
+    "name": "Home Center Ferreira Costa Imbiribeira",
+    "address": "Avenida Mal. Mascarenhas de Morais",
+    "number": "2967",
+    "bairro": "Imbiribeira",
+    "city": "Recife",
+    "state": "PE",
+    "postalcode": "51150-905",
+    "storeType": "PDV",
+    "location": {
+      "type": "Point",
+      "coordinates": [-34.91093, -8.11199]
+    }
+  },
+  {
+    "name": "Home Center Ferreira Costa Ribeirão",
+    "address": "Rodovia BR-101, Km 81",
+    "Number": "s/n",
+    "bairro": "Canavial",
+    "city": "Ribeirão",
+    "state": "PE",
+    "postalcode": "55520-000",
+    "storeType": "LOJA",
+    "location": {
+      "type": "Point",
+      "coordinates": [-35.97906, -8.26561]
+    }
+  },
+  {
+    "name": "Home Center Ferreira Costa Aracaju",
+    "address": "Av. Melício Machado",
+    "number": "240",
+    "bairro": "Aeroporto",
+    "city": "Aracaju",
+    "state": "SE",
+    "postalcode": "49038-443",
+    "storeType": "PDV",
+    "location": {
+      "type": "Point",
+      "coordinates": [-37.06112, -10.98983]
+    }
+  },
+  {
+    "name": "Home Center Ferreira Costa Brejo Grande",
+    "address": "R. Jackson de Figueiredo",
+    "number": "67",
+    "bairro": "Centro",
+    "city": "Brejo Grande",
+    "state": "SE",
+    "postalcode": "49995-000",
+    "storeType": "LOJA",
+    "location": {
+      "type": "Point",
+      "coordinates": [-36.4627, -10.4232]
+    }
+  },
+  {
+    "name": "Home Center Ferreira Costa Propriá",
+    "address": "Rua Dom Juvencio de Brito",
+    "number": "1244",
+    "bairro": "Propriá",
+    "city": "Propriá",
+    "state": "SE",
+    "postalcode": "49900-000",
+    "storeType": "LOJA",
+    "location": {
+      "type": "Point",
+      "coordinates": [-36.83885, -10.2182]
+    }
+  }
+]

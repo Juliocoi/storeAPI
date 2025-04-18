@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DatabaseService } from './database/database.service';
 //import { DatabaseModule } from './database/database.module';
+import { StoreModule } from './store/store.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -18,6 +19,8 @@ import { DatabaseService } from './database/database.service';
         uri: configService.get('DATABASE'),
       }),
     }),
+    StoreModule,
+    //TODO vê se preciso importar DatabaseModule. aparentemente não estou usando pra nada.
     // ,DatabaseModule
   ],
   controllers: [AppController],
