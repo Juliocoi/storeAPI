@@ -3,8 +3,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { DatabaseService } from './database/database.service';
-//import { DatabaseModule } from './database/database.module';
+
 import { StoreModule } from './store/store.module';
 @Module({
   imports: [
@@ -20,10 +19,8 @@ import { StoreModule } from './store/store.module';
       }),
     }),
     StoreModule,
-    //TODO vê se preciso importar DatabaseModule. aparentemente não estou usando pra nada.
-    // ,DatabaseModule
   ],
   controllers: [AppController],
-  providers: [AppService, DatabaseService],
+  providers: [AppService],
 })
 export class AppModule {}
