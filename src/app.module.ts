@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 import { StoreModule } from './store/store.module';
+import { GoogleGeolocationServiceService } from './external-services/google-geolocation-service.service';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -21,6 +22,6 @@ import { StoreModule } from './store/store.module';
     StoreModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, GoogleGeolocationServiceService],
 })
 export class AppModule {}
