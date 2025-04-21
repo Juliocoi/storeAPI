@@ -15,7 +15,7 @@ class SeedService {
 
   constructor(
     @InjectModel(Store.name) private readonly storeModel: Model<Store>
-  ) {}
+  ) { }
   //constructor(@InjectConnection() private readonly connection: Connection) {}
   /**
    * Clear existing data and seed stores
@@ -56,8 +56,9 @@ class SeedService {
         bairro: "Tamarineira",
         city: "Recife",
         state: "PERNAMBUCO",
-        storeType: "PDV",
         postalCode: "52051020",
+        shippingTimeInDays: 1,
+        storeType: "PDV",
         location: {
           type: "Point",
           coordinates: [-34.90284, -8.03107],
@@ -70,8 +71,9 @@ class SeedService {
         bairro: "Imbiribeira",
         city: "Recife",
         state: "PERNAMBUCO",
-        storeType: "LOJA",
         postalCode: "51150905",
+        shippingTimeInDays: 2,
+        storeType: "LOJA",
         location: {
           type: "Point",
           coordinates: [-34.91093, -8.11199],
@@ -86,8 +88,9 @@ class SeedService {
         bairro: "Piedade",
         city: "aboatão dos Guararapes",
         state: "PERNAMBUCO",
-        storeType: "PDV",
         postalCode: "22021000",
+        shippingTimeInDays: 1,
+        storeType: "PDV",
         location: {
           type: "Point",
           coordinates: [-43.1823, -22.9711],
@@ -102,8 +105,9 @@ class SeedService {
         bairro: "Savassi",
         city: "Belo Horizonte",
         state: "MINAS GERAIS",
-        storeType: "PDV",
         postalCode: "30130151",
+        shippingTimeInDays: 1,
+        storeType: "PDV",
         location: {
           type: "Point",
           coordinates: [-43.9352, -19.9353],
@@ -118,8 +122,9 @@ class SeedService {
         bairro: "Jardins",
         city: "São Paulo",
         state: "SÃO PAULO",
-        storeType: "LOJA",
         postalCode: "01426001",
+        shippingTimeInDays: 2,
+        storeType: "LOJA",
         location: {
           type: "Point",
           coordinates: [-46.6693, -23.5638],
@@ -132,8 +137,9 @@ class SeedService {
         bairro: "Centro",
         city: "Rio de Janeiro",
         state: "RIO DE JANEIRO",
-        storeType: "LOJA",
         postalCode: "20040-901",
+        shippingTimeInDays: 2,
+        storeType: "LOJA",
         location: {
           type: "Point",
           coordinates: [-43.1773, -22.9068],
@@ -146,8 +152,9 @@ class SeedService {
         bairro: "Boa Viagem",
         city: "Recife",
         state: "PERNAMBUCO",
-        storeType: "LOJA",
         postalCode: "51011000",
+        shippingTimeInDays: 2,
+        storeType: "LOJA",
         location: {
           type: "Point",
           coordinates: [-34.8809, -8.1208],
@@ -160,8 +167,9 @@ class SeedService {
         bairro: "Asa Norte",
         city: "Brasília",
         state: "DISTRITO FEDERAL",
-        storeType: "LOJA",
         postalCode: "70705000",
+        shippingTimeInDays: 2,
+        storeType: "LOJA",
         location: {
           type: "Point",
           coordinates: [-47.8825, -15.7942],
@@ -174,8 +182,9 @@ class SeedService {
         bairro: "Rio Branco",
         city: "Porto Alegre",
         state: "RIO GRANDE DO SUL",
-        storeType: "LOJA",
         postalCode: "90430100",
+        shippingTimeInDays: 2,
+        storeType: "LOJA",
         location: {
           type: "Point",
           coordinates: [-51.2099, -30.0308],
@@ -188,8 +197,9 @@ class SeedService {
         bairro: "Centro",
         city: "Florianópolis",
         state: "SANTA CATARINA",
-        storeType: "LOJA",
         postalCode: "88015700",
+        shippingTimeInDays: 2,
+        storeType: "LOJA",
         location: {
           type: "Point",
           coordinates: [-48.5527, -27.5968],
@@ -222,7 +232,7 @@ class SeedService {
   ],
   providers: [SeedService],
 })
-class SeedModule {}
+class SeedModule { }
 
 /**
  * Bootstrap the seed process

@@ -3,9 +3,10 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-
 import { StoreModule } from './store/store.module';
-import { GoogleGeolocationServiceService } from './external-services/google-geolocation-service.service';
+import { GoogleGeolocationService } from './external-services/google-geolocation-service.service';
+import { MelhorEnvioService } from './external-services/melhor-envio-service.service';
+
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -22,6 +23,6 @@ import { GoogleGeolocationServiceService } from './external-services/google-geol
     StoreModule,
   ],
   controllers: [AppController],
-  providers: [AppService, GoogleGeolocationServiceService],
+  providers: [AppService, GoogleGeolocationService, MelhorEnvioService],
 })
-export class AppModule {}
+export class AppModule { }

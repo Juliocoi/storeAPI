@@ -26,6 +26,9 @@ export class Store {
   @Prop({ required: [true, "CEP required"], trim: true })
   postalCode: string;
 
+  @Prop({ required: true, default: 1 })
+  shippingTimeInDays: number;
+
   @Prop({
     required: [true, "Store type is required (PDV|LOJA)"],
     enum: ["PDV", "LOJA"],

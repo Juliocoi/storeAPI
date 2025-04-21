@@ -1,19 +1,3 @@
-// export class StoreDto {
-//   id: string;
-//   name: string;
-//   adress: string;
-//   number: string;
-//   bairro: string;
-//   city: string;
-//   state: string;
-//   postalCode: string;
-//   storeType: string;
-//   location: {
-//     type: string;
-//     coordinates: number[];
-//   }
-// }
-
 export class StoreValueDto {
   prazo: string;
   price: string;
@@ -25,14 +9,14 @@ export class StoreResponseDto {
   city: string;
   postalCode: string;
   type: string;
-  distance: string;
+  distance: number;
   value: StoreValueDto[];
 }
 
 export class MapPinDto {
   position: {
-    lat: string;
-    long: string;
+    lat: number;
+    long: number;
   };
   title: string;
 }
