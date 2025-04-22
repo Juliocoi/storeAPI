@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { APP_FILTER } from '@nestjs/core';
+import { AllExceptionsFilter } from './exceptions/exception.filter';
 import { StoreModule } from './store/store.module';
 import { GoogleGeolocationService } from './external-services/google-geolocation-service.service';
 import { MelhorEnvioService } from './external-services/melhor-envio-service.service';
@@ -21,6 +23,13 @@ import { MelhorEnvioService } from './external-services/melhor-envio-service.ser
     StoreModule,
   ],
   controllers: [],
-  providers: [GoogleGeolocationService, MelhorEnvioService],
+  providers: [
+    GoogleGeolocationService,
+    MelhorEnvioService,
+    {
+      provide: APP_FILTER,
+      useClass: AllExceptionsFilter,
+    }
+  ],
 })
 export class AppModule { }
